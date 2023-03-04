@@ -22,10 +22,14 @@ For the person or area you want to log in within the application.
  *  Use this field to generate qr code
  *  https://github.com/oxcakmak/PHP-QR-Code-Class
 */
-echo gaCode($username."_".date("YmdHis"));
+echo gaCode($username, $user['gaSecretCode']);
 ```
 To check the valid 30 second code generated within the application
 ```php
+/*
+ *  These fields are written as examples.
+ *  In 2-step verification systems, you can store users' keys with jwt tokens as security.
+*/
 if(gaVerify($code, $user['gaSecretCode'])){
   /* Database, execute functions etc.*/
 }else{ /* if code false then */ }
